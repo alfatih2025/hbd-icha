@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HBD FOR U ICHA</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      animation: glow 2s ease-in-out infinite alternate;
+      margin-bottom: 0.3em;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #ffecb3, 0 0 20px #ffe082, 0 0 30px #ffd54f;
+      }
+      to {
+        text-shadow: 0 0 20px #ffe57f, 0 0 30px #ffca28, 0 0 40px #ffc107;
+      }
+    }
+
+    .doa {
+      font-size: 1.2em;
+      padding: 1em;
+      background-color: rgba(0,0,0,0.5);
+      border-radius: 15px;
+      max-width: 700px;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    .music-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+      z-index: 999;
+    }
+
+    .music-btn:hover {
+      background: rgba(255,255,255,0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎉 Barakallah Fii Umrik! 🎉</h1>
+  <div class="doa">
+    <p>HBD KEYSYA KIRANA PUTRI</p>
+      <p>Semoga Allah SWT senantiasa memberkahi usiamu, memudahkan setiap urusanmu, dan menjadikanmu pribadi yang selalu istiqamah dalam kebaikan. 🤲</p>
+    <p style="font-size: 1.3em;">اللّهُمَّ بَارِكْ لَهُ فِي عُمُرِهِ وَزِدْهُ تَقْوًى وَصَلَاحًا</p>
+    <p>"Ya Allah, berkahilah usianya, tambahkan ketakwaan dan kebaikan di setiap langkahnya."</p>
+  </div>
+   <!--audio musik-->
+<audio id="bgm" loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3421b3bdb9.mp3?filename=islamic-cinematic-11566.mp3" type="audio/mp3">
+</audio>
+  <!--tombol play/pause musik-->
+  <button class="music-btn" onclick="toggleMusic()">▶️ Putar Musik</button>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    const bgm = document.getElementById('bgm');
+    let isPlaying = false;
+
+    function toggleMusic() {
+      if (!isPlaying) {
+        bgm.play();
+        isPlaying = true;
+        document.querySelector('.music-btn').textContent = "🔇 Matikan Musik";
+      } else {
+        bgm.pause();
+        isPlaying = false;
+        document.querySelector('.music-btn').textContent = "▶️ Putar Musik";
+      }
+    }
+    setInterval(() => {
+      confetti({
+        particleCount: 7,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#fce4ec', '#f8bbd0', '#e1bee7', '#d1c4e9', '#b3e5fc'],
+        scalar: 0.8
+      });
+    }, 800);
+  </script>
+
+</body>
+</html>
